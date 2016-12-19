@@ -1,0 +1,45 @@
+<head>
+  <link href="/assets/models.css" rel="stylesheet">
+</head>
+
+<p id="notice"><%= notice %></p>
+
+<h2>Services</h2>
+
+  <table class="table table-condensed table-striped table-hover">
+    <thead>
+      <tr>
+        <th><h4><strong>#</strong></h4></th>
+        <th><h4><strong>Name</strong></h4></th>
+        <th><h4><strong>Website</strong></h4></th>
+        <th><h4><strong>City</strong></h4></th>
+        <th><h4><strong>Founded</strong></h4></th>
+        <th><h4><strong>Topic</strong></h4></th>
+        <th colspan="2"></th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @services.each_with_index do |service, index| %>
+        <tr>
+          <th scope="row"><h4><%= index + 1%></h4></th>
+          <td><h4><%= link_to service.name, service %></h4></td>
+          <td><h4><%= service.website %></h4></td>
+          <% if service.city != nil %>
+              <td><h4><%= service.city.name %></h4></td>
+          <% else %>
+              <td><h4> - </h4></td>
+          <% end %>
+          
+          <td><h4><%= service.founded %></h4></td>
+          <td><h4><%= service.topic %></h4></td>
+          <td><%= link_to 'Edit', edit_service_path(service) %></td>
+          <td><%= link_to 'Destroy', service, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+<br>
+
+<%= link_to 'New Service', new_service_path %>

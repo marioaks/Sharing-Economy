@@ -1,0 +1,29 @@
+<head>
+  <link href="/assets/models.css" rel="stylesheet">
+</head>
+
+<body>
+  <p id="notice"><%= notice %></p>
+
+
+  <h2>Countries</h2>
+    <table class="table-condensed table-striped table-hover">
+      <thead>
+        <tr>
+          <th><h4><strong>#</strong></h4></th>
+          <th><h4><strong>Name</strong></h4></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @countries.each_with_index do |country, index| %>
+          <tr>
+            <th scope="row"><h4><%= index + 1%></h4></th>
+            <td><h4><%= link_to country.name, country %></h4></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+  <br>
+</body>

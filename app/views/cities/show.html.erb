@@ -1,0 +1,37 @@
+<head>
+  <link href="/assets/models.css" rel="stylesheet">
+</head>
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @city.name %>
+</p>
+
+<p>
+  <strong>Lat:</strong>
+  <%= @city.lat %>
+</p>
+
+<p>
+  <strong>Lng:</strong>
+  <%= @city.lng %>
+</p>
+
+<p>
+  <strong>Country:</strong>
+  <%= @city.country %>
+</p>
+
+<% if @city.services.size != 0 %>
+                <p> <strong> Services: </strong> </p>
+                  <% @city.services.each do |service| %>
+                    <h4><%= link_to service.name, service %> </h4>
+                  <% end %>
+              <% else %>
+                <p style="color:red;"> There are no services associated with this city </p>
+              <% end %>
+
+<%= link_to 'Edit', edit_city_path(@city) %> |
+<%= link_to 'Back', cities_path %>

@@ -1,0 +1,40 @@
+<head>
+  <link href="/assets/models.css" rel="stylesheet">
+</head>
+
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Cities</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Lat</th>
+      <th>Lng</th>
+      <th>Country</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @cities.each do |city| %>
+      <% if city.country != nil %>
+      <tr>
+        <td><%= city.name %></td>
+        <td><%= city.lat %></td>
+        <td><%= city.lng %></td>
+        <td><%= city.country.name %></td>
+        <td><%= link_to 'Show', city %></td>
+        <td><%= link_to 'Edit', edit_city_path(city) %></td>
+        <td><%= link_to 'Destroy', city, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+      </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New City', new_city_path %>

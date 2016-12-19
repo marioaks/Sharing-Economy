@@ -1,0 +1,31 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+four:
+  name: CityFour
+  lat: -25.34
+  lng: 5.22
+  country_id:
+
+one:
+  name: CityOne
+  lat: -20
+  lng: 5
+  country_id: 
+
+three:
+  name: CityThree
+  lat: 50.432
+  lng: 50.643
+  country_id: 
+
+two:
+  name: CityTwo
+  lat: 0
+  lng: 0
+  country_id: 
+
+valid:
+  name: NewCity
+  lat: 42.45
+  lng: 0
+  country_id: 127

@@ -1,0 +1,44 @@
+<head>
+  <link href="/assets/models.css" rel="stylesheet">
+</head>
+
+<body>
+  <p id="notice"><%= notice %></p>
+
+  <div class="container">
+      <div class="row">
+
+          <div class="section-title">
+              <h2><%= @country.name %></h2>
+          </div>
+      </div>
+      
+        
+        <div class='col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xl-6'>
+        <% if @country.services.size != 0 %>
+        <h3> Services: </h4> <br>
+      		<% @country.services.each do |service| %>
+      			<h4><%= link_to service.name, service %> </h4>
+            <p> <strong>Topic: </strong> <%= service.topic %> </p>
+            <% if service.city != nil %>
+              <p> <strong>Headquarter: </strong> <%= service.city.name %> </p>
+            <% end %>
+            
+            <p> <strong>Description: </strong> <%=service.description%> </p>
+            <br> 
+          <% end %>
+          <%= link_to 'Back to All Countries', countries_path %>
+        </div>
+        <div class='col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xl-6'>
+          <%= high_chart("services_chart", @chart) %>
+        </div>
+      <% else %>
+        <p style="color:red;"> We have no service data for <%= @country.name %> </p>
+        <%= link_to 'Back to All Countries', countries_path %>
+      <% end %>
+
+    	</ul>
+
+
+  
+</body>
